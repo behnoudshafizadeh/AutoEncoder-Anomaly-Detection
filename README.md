@@ -37,6 +37,7 @@ images.pickle: A serialized set of unlabeled images for us to find anomalies in.
 python find_anomalies.py --dataset output/images.pickle --model output/autoencoder.model
 ```
 > after running this `.py` file,you see the result as below:
+> 
 ![output](https://user-images.githubusercontent.com/53394692/111338714-656b3400-868c-11eb-94a8-1dca2d0a9ad8.PNG)
 >
 > since autoencoder only learned about number `1` structure basis on our congiguration in `train_unsupervised_autoencoder.py` file,and learned the fact number `3` as anomaly,we see that in anomly list two number `1` is found as anomaly,these are the incorrect results of autoencoder.
