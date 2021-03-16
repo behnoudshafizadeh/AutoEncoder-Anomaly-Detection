@@ -16,6 +16,31 @@ using autoencoder for detecting anomaly in mnist dataset
 >
 ## STRUCTURE of This Project
 > the architecture of autoencdoer is in `pyimagesearch/convautoencoder.py` and for starting the train procedure you can run following command:
+```
+python train_unsupervised_autoencoder.py --dataset output/images.pickle --model output/autoencoder.model
+
+autoencoder.model: The serialized, trained autoencoder model.
+images.pickle: A serialized set of unlabeled images for us to find anomalies in.
+```
+> these two files will store in `output` directory.
+> 
+> after running this `.py` file , the result of train/validation basis on our dataset will be creating,such as below :
+>
+![plot](https://user-images.githubusercontent.com/53394692/111337207-24beeb00-868b-11eb-9277-d1d1351ddb25.png)
+>
+> Furthermore, we can look at our output `recon_vis.png` visualization file to see that our autoencoder has learned to correctly reconstruct the 1 digit from the MNIST dataset:
+>
+![recon_vis](https://user-images.githubusercontent.com/53394692/111337469-5e8ff180-868b-11eb-93d7-455c8ad5ea31.png)
+>
+> for testing and detecting anomalies in dataset,run `find_anomalies.py` such as below: 
+```
+python find_anomalies.py --dataset output/images.pickle --model output/autoencoder.model
+```
+> after running this `.py` file,you see the result as below:
+![output](https://user-images.githubusercontent.com/53394692/111338714-656b3400-868c-11eb-94a8-1dca2d0a9ad8.PNG)
+>
+> since autoencoder only learned about number `1` structure basis on our congiguration in `train_unsupervised_autoencoder.py` file,and learned the fact number `3` as anomaly,we see that in anomly list two number `1` is found as anomaly,these are the incorrect results of autoencoder.
+
 
 
 ## License
